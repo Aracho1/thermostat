@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        a.test {
+            font-weight: bold;
+        }
+        </style>
+    <title>Thermostat</title>
+</head>
+<body>
+    <style>
+        a.test {
+            font-weight: bold;
+        }
+        </style>
+    <a href="http://jquery.com/">jQuery</a>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $( "#clickme" ).click(function() {
+        $( "#book" ).animate({
+            opacity: 0.25,
+            left: "+=50",
+            height: "toggle"
+            }, 5000, function() {
+                // Animation complete.
+            });
+        });
+    </script>
+    <section>
+        <button id='temperature-up'>Turn Up</button>
+        <button id='temperature-down'>Turn Down</button>
+        <button id='temperature-reset'>Reset</button>
+        power saving mode is <span id="power-saving-status">on</span>
+        <button id='toggle-PSM'>Toggle PSM</button>
+
+        <script src="../src/Thermostat.js"></script>
+    </section>
+
+    <div id="clickme">
+        Click here
+      </div>
+      <img id="book" src="book.png" alt="" width="100" height="123"
+        style="position: relative; left: 10px;">
+
+</body>
+</html>
