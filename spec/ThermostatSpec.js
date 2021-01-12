@@ -7,9 +7,7 @@ describe('Thermostat', function() {
   describe("'up'", function() {
     it("turns up the temperature", function() {
       let thermostat = new Thermostat();
-      console.log(thermostat.temperature)
       thermostat.turnUp();
-      console.log(thermostat.temperature)
       expect(thermostat.temperature).toEqual(21);
     })
   })
@@ -54,6 +52,51 @@ describe('Thermostat', function() {
       }
       expect(thermostat.temperature).toEqual(32);
     })
+  });
+
+  describe("'reset'", function() {
+    it("resets the temp to 20 degrees", function() {
+      let thermostat = new Thermostat();
+      var times = 12;
+      for(var i=0; i <= times; i++){
+        thermostat.turnUp();
+      }
+      thermostat.reset();
+      expect(thermostat.temperature).toEqual(20);
+    })
+  })
+
+  describe("'usage'", function() {
+    it("assesses the thermostat's current energey usage", function() {
+      let thermostat = new Thermostat();
+      var times = 2;
+      for(var i= 0; i <= times; i++){
+        thermostat.turnDown();
+      }
+      expect(thermostat.usage()).toEqual('low-usage');
+    });
+
+    it("assesses the thermostat's current energey usage", function() {
+      let thermostat = new Thermostat();
+      var times = 4;
+      for(var i= 0; i <= times; i++){
+        thermostat.turnUp();
+      }
+      console.log(thermostat.temperature)
+      expect(thermostat.usage()).toEqual('medium-usage');
+    });
+
+    it("assesses the thermostat's current energey usage", function() {
+      let thermostat = new Thermostat();
+      var times = 10;
+      thermostat.togglePowerSavingMode()
+      for(var i= 0; i <= times; i++){
+        thermostat.turnUp();
+      }
+      console.log(thermostat.temperature)
+      
+      expect(thermostat.usage()).toEqual('high-usage');
+    });
   })
 
 });
