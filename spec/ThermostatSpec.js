@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Thermostat', function() {
   it("initializes with 20 degrees", function() {
     let thermostat = new Thermostat();
